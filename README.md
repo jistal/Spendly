@@ -3,10 +3,10 @@
 A lightweight personal finance tracker built with Java / JavaFX.
 
 **Screenshot 1**
-![Main Menu](Images/spendly_image1.png)
+![Main Menu](src/Images/spendly_image1.png)
 
 **Screenshot 2**
-![Yearly Chart](Images/spendly_image2.png)
+![Yearly Chart](/src/Images/spendly_image2.png)
 
 ## Features
 - Track earnings and spendings
