@@ -61,7 +61,7 @@ public class CoordinatorCharts {
 
             // show months instead of numbers for monthly view
             if (period == Period.MONTHLY) {
-                xAxis = String.valueOf(dp.timeUnitValue());
+                xAxis = numToMonth(String.valueOf(dp.timeUnitValue()));
             } else {
                 xAxis = String.valueOf(dp.timeUnitValue());
             }
