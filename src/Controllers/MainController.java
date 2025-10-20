@@ -27,7 +27,6 @@ public class MainController {
 
     // public "apis" used by menu Manager
     public void showTopLabelsContainer(){topLabelContainer.setVisible(true);}
-    public void hideTopLabelsContainer(){topLabelContainer.setVisible(false);}
     public void showEarningsChart(){earningsChart.setVisible(true);}
     public void hideEarningsChart(){earningsChart.setVisible(false);}
     public void showSpendingsChart(){spendingsChart.setVisible(true);}

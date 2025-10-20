@@ -46,18 +46,18 @@ public class ButtonsController {
 
 
     @FXML private VBox mainButtons;
-    @FXML private VBox secondaryButtons;      // this
+    @FXML private VBox secondaryButtons;
     @FXML private TextField amountInput;
-    @FXML private VBox amountInputContainer; // this
+    @FXML private VBox amountInputContainer;
     @FXML private VBox viewButtons;
-    @FXML private VBox viewCategoryContainer;      // this
-    @FXML private HBox backButtonContainer;          // tjois
+    @FXML private VBox viewCategoryContainer;
+    @FXML private HBox backButtonContainer;
     @FXML private ScrollPane dailyScrollPane;
-    @FXML private VBox dailyScrollContainer;          // tjos
+    @FXML private VBox dailyScrollContainer;
     @FXML private Button addBtn;
     @FXML private Button viewBtn;
-    @FXML private Button earningsBtn;        //
-    @FXML private Button spendingsBtn;         //
+    @FXML private Button earningsBtn;
+    @FXML private Button spendingsBtn;
     @FXML private Button dailyViewBtn;
     @FXML private Button monthlyViewBtn;
     @FXML private Button yearlyViewBtn;
@@ -68,18 +68,18 @@ public class ButtonsController {
     // public "apis" for menu manager
     public void showMainButtons(){mainButtons.setVisible(true);}
     public void hideMainButtons(){mainButtons.setVisible(false);}
-    public void showSecondaryButtons(){secondaryButtons.setVisible(true);}          //
-    public void hideSecondaryButtons(){secondaryButtons.setVisible(false);}           //
-    public void showAmountInputContainer(){amountInputContainer.setVisible(true);}      //
+    public void showSecondaryButtons(){secondaryButtons.setVisible(true);}
+    public void hideSecondaryButtons(){secondaryButtons.setVisible(false);}
+    public void showAmountInputContainer(){amountInputContainer.setVisible(true);}
     public void hideAmountInputVBOX(){amountInputContainer.setVisible(false);}
     public void showViewButtons(){viewButtons.setVisible(true);}
     public void hideViewButtons(){viewButtons.setVisible(false);}
-    public void showViewSpendOrEarnContainer(){viewCategoryContainer.setVisible(true);}          //
-    public void hideViewSpendOrEarnContainer(){viewCategoryContainer.setVisible(false);}           //
-    public void showBackButtonContainer(){backButtonContainer.setVisible(true);}           //
-    public void hideBackButtonContainer(){backButtonContainer.setVisible(false);}          //
-    public void showDailyScrollContainer(){dailyScrollContainer.setVisible(true);}       //
-    public void hideDailyScrollContainer(){dailyScrollContainer.setVisible(false);}            //
+    public void showViewSpendOrEarnContainer(){viewCategoryContainer.setVisible(true);}
+    public void hideViewSpendOrEarnContainer(){viewCategoryContainer.setVisible(false);}
+    public void showBackButtonContainer(){backButtonContainer.setVisible(true);}
+    public void hideBackButtonContainer(){backButtonContainer.setVisible(false);}
+    public void showDailyScrollContainer(){dailyScrollContainer.setVisible(true);}
+    public void hideDailyScrollContainer(){dailyScrollContainer.setVisible(false);}
 
     // "api" used by input amount helper
     public TextField getAmountInputField(){return amountInput;}

@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Controllers/Main.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Controllers/Main.fxml"));
         BorderPane root = loader.load();   // store the root as borderpane
 
         stage.getIcons().add(new Image(getClass().getResourceAsStream("Images/Logo.png")));
