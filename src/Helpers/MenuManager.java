@@ -2,7 +2,7 @@ package Helpers;
 import Controllers.ButtonsController;
 import Controllers.MainController;
 
-public class menuManager {
+public class MenuManager {
 
     //ref to main and buttons con for ui updates
     private ButtonsController buttonsController;

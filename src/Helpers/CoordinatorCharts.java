@@ -1,26 +1,26 @@
 package Helpers;
-import DataReaders.readTransactions;
+import DataReaders.ReadTransactions;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.XYChart;
 import java.time.Month;
 import java.util.ArrayList;
 
-public class coordinatorCharts {
+public class CoordinatorCharts {
 
     private enum Period{
         DAILY, MONTHLY, YEARLY
     } Period period;
 
-    // called by coordinator to set chart ref
+    // called by Coordinator to set chart ref
     AreaChart<String, Number> chart;
     public void setChart(AreaChart<String, Number> chartReturned) {
         this.chart = chartReturned;
     }
 
     // ref to data reader
-    readTransactions readTransactions = new readTransactions();
+    ReadTransactions readTransactions = new ReadTransactions();
 
-// period setters used by coordinator
+// period setters used by Coordinator
     public void setPeriodDaily(){period = Period.DAILY;}
     public void setPeriodMonthly(){period = Period.MONTHLY;}
     public void setPeriodYearly(){period = Period.YEARLY;}
@@ -28,7 +28,7 @@ public class coordinatorCharts {
 
     public void getDataForChart(String fileName, String selectedMonth, String selectedYear) {
 
-        ArrayList<dataPoint> data = new ArrayList<>();
+        ArrayList<DataPoint> data = new ArrayList<>();
         XYChart.Series<String, Number> series = new XYChart.Series<>();
 
         switch (period) {
@@ -52,11 +52,11 @@ public class coordinatorCharts {
     }
 
 
-    private void displayTheData(ArrayList<dataPoint> data, XYChart.Series<String, Number> series){
+    private void displayTheData(ArrayList<DataPoint> data, XYChart.Series<String, Number> series){
         chart.getData().clear();
 
         for (int i = 0; i < data.size(); i++){
-            dataPoint dp= data.get(i);
+            DataPoint dp= data.get(i);
             String xAxis;
 
             // show months instead of numbers for monthly view

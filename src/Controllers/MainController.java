@@ -1,7 +1,7 @@
 package Controllers;
-import Helpers.coordinator;
-import Helpers.menuManager;
-import Helpers.notificationHandler;
+import Helpers.Coordinator;
+import Helpers.MenuManager;
+import Helpers.NotificationHandler;
 import javafx.fxml.FXML;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.control.Label;
@@ -11,9 +11,9 @@ import javafx.scene.layout.HBox;
 public class MainController {
 
     @FXML private ButtonsController buttonsController;
-    private menuManager menuManager;
-    private coordinator coordinator;
-    private notificationHandler notificationHandler;
+    private MenuManager menuManager;
+    private Coordinator coordinator;
+    private NotificationHandler notificationHandler;
 
     // track which chart menu is visible or not
     public enum chartMenu { EARNINGSCHART, SPENDINGSCHART,
@@ -44,11 +44,11 @@ public class MainController {
     @FXML public void initialize() {
         buttonsController.setMainController(this); // allow buttons con to talk to main con
 
-        coordinator = new coordinator(); // create the helper
+        coordinator = new Coordinator(); // create the helper
         buttonsController.setCoordinator(coordinator); // inj into buttons controller
 
         // create and inject menu manager
-        menuManager = new menuManager();
+        menuManager = new MenuManager();
         menuManager.setMainController(this);
         menuManager.setButtonsController(buttonsController);
         buttonsController.setMenuManager(menuManager);
@@ -61,6 +61,6 @@ public class MainController {
         // default menu
         menuManager.buttonVisibility(ButtonsController.Menu.MAIN);
 
-        Helpers.notificationHandler.getInstance().setMainController(this);
+        NotificationHandler.getInstance().setMainController(this);
     }
 }

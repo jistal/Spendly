@@ -1,9 +1,10 @@
 package DataReaders;
-import Helpers.notificationHandler;
+import Helpers.NotificationHandler;
+
 import java.io.*;
 import java.util.*;
 
-public class readData {
+public class ReadData {
 
     // read the months found in the file and year selected by user
    public ArrayList<String> storedMonths(String fileName, String selectedYear) {
@@ -13,9 +14,7 @@ public class readData {
        // remove dupe keys and sorts from low -> high
        SortedSet<String> monthsSet = new TreeSet<>();
 
-        try {
-            File file = new File(fileName);
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+       try (BufferedReader reader = new BufferedReader(new FileReader(fileName))){
 
             while ((line = reader.readLine()) != null) {
                 String[] readData = line.split("-");
@@ -34,7 +33,7 @@ public class readData {
                 monthsList.add(month);
             }
         } catch (IOException e) {
-            notificationHandler.getInstance().callNotificationHandler("Could not load data, try again.");
+            NotificationHandler.getInstance().callNotificationHandler("Could not load data, try again.");
         }
        return monthsList;
     }
@@ -46,9 +45,7 @@ public class readData {
         ArrayList<String> yearsList = new ArrayList<>();
         SortedSet<String> yearSet = new TreeSet<>();
 
-        try {
-            File file = new File(fileName);
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))){
 
             while ((line = reader.readLine()) != null) {
                 String[] readData = line.split("-");
@@ -62,7 +59,7 @@ public class readData {
                 yearsList.add(years);
             }
         } catch (IOException e) {
-            notificationHandler.getInstance().callNotificationHandler("Could not load data, try again.");
+            NotificationHandler.getInstance().callNotificationHandler("Could not load data, try again.");
         }
         return yearsList;
     }

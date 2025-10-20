@@ -2,10 +2,10 @@ package Helpers;
 import Controllers.MainController;
 import javafx.scene.paint.Color;
 
-    public class notificationHandler {
+    public class NotificationHandler {
 
         // single global instance
-        private static final notificationHandler INSTANCE = new notificationHandler();
+        private static final NotificationHandler INSTANCE = new NotificationHandler();
 
         private MainController mainController;
         public void setMainController(MainController main) {
@@ -13,16 +13,16 @@ import javafx.scene.paint.Color;
         }
 
         // private constructor
-        private notificationHandler() {
+        private NotificationHandler() {
         }
         // access point for everyone
-        public static notificationHandler getInstance() {
+        public static NotificationHandler getInstance() {
             return INSTANCE;
         }
 
         public void callNotificationHandler(String message) {
             if (mainController == null) {
-                System.err.println("notificationHandler - MainController not set!");
+                System.err.println("NotificationHandler - MainController not set!");
                 return;
             }
             mainController.accessTopLabel().setText(message);

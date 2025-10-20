@@ -3,7 +3,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 
-public class writer {
+public class Writer {
 
     // write user input amount for earnings / spendings
     void writeToFile(int amountSpent, String fileName) {
@@ -15,7 +15,7 @@ public class writer {
             writer.write(dateDetails + "-" + amountSpent + "\n");
 
         } catch (IOException e) {
-            notificationHandler.getInstance().callNotificationHandler("Could not save data, try again.");
+            NotificationHandler.getInstance().callNotificationHandler("Could not save data, try again.");
         }
     }
 }

@@ -1,21 +1,20 @@
 package DataReaders;
-import Helpers.dataPoint;
-import Helpers.notificationHandler;
+import Helpers.DataPoint;
+import Helpers.NotificationHandler;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class readTransactions {
+public class ReadTransactions {
 
     private enum Period {
         DAILY, MONTHLY, YEARLY
     } Period period;
 
-    // api used by coordinator charts
+    // api used by Coordinator charts
     public void setPeriodDaily() {
         period = Period.DAILY;
     }
@@ -29,19 +28,16 @@ public class readTransactions {
     }
 
 
-    ArrayList<dataPoint> transactionData = new ArrayList<>();
+    ArrayList<DataPoint> transactionData = new ArrayList<>();
     Map<String, Integer> map = new TreeMap<>();
 
     // reads data (x, y) in pairs for chart
-    public ArrayList<dataPoint> data(String fileName, String selectedMonth, String selectedYear) {
+    public ArrayList<DataPoint> data(String fileName, String selectedMonth, String selectedYear) {
         transactionData.clear();
         map.clear();
         String line;
 
-        try {
-            File file = new File(fileName);
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))){
             // read and process each line for selected period
             while ((line = reader.readLine()) != null) {
 
@@ -59,10 +55,10 @@ public class readTransactions {
 
                 int date = Integer.parseInt(entry.getKey());
                 int amount = entry.getValue();
-                transactionData.add(new dataPoint(date, amount));
+                transactionData.add(new DataPoint(date, amount));
             }
         } catch (IOException e) {
-            notificationHandler.getInstance().callNotificationHandler("Could not load data, try again.");
+            NotificationHandler.getInstance().callNotificationHandler("Could not load data, try again.");
         }
         return transactionData;
     }

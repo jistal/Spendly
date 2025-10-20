@@ -1,7 +1,7 @@
 package Helpers;
 import Controllers.ButtonsController;
 
-public class inputAmount {
+public class InputAmount {
 
     private ButtonsController buttonsController;
     public void setButtonsController(ButtonsController buttonsController) {
@@ -15,11 +15,11 @@ public class inputAmount {
 
         if (amount != null && !amount.isEmpty() && amount.matches("\\d*")) {     // check if input is an int
 
-            writer write = new writer();
+            Writer write = new Writer();
             write.writeToFile(Integer.parseInt(amount), fileName);
             buttonsController.getAmountInputField().clear();
         } else {
-            notificationHandler.getInstance().callNotificationHandler("Invalid input, try again.");
+            NotificationHandler.getInstance().callNotificationHandler("Invalid input, try again.");
             buttonsController.getAmountInputField().clear();
         }
     }

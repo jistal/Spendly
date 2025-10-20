@@ -1,7 +1,7 @@
 package Controllers;
-import Helpers.coordinator;
-import Helpers.inputAmount;
-import Helpers.menuManager;
+import Helpers.Coordinator;
+import Helpers.InputAmount;
+import Helpers.MenuManager;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -21,19 +21,19 @@ public class ButtonsController {
         this.mainController = main;
     }
 
-    // link this controller to coordinator
-    private coordinator communicator;
-    public void setCoordinator(coordinator comm) {
+    // link this controller to Coordinator
+    private Coordinator communicator;
+    public void setCoordinator(Coordinator comm) {
         this.communicator = comm;
     }
 
-    private menuManager menuManager; // injected by main
-    public void setMenuManager(menuManager menu) {
+    private MenuManager menuManager; // injected by main
+    public void setMenuManager(MenuManager menu) {
         this.menuManager = menu;
     }
 
     // handle user input for spendings / earnings
-    inputAmount inputAmount = new inputAmount();
+    InputAmount inputAmount = new InputAmount();
 
    public enum Menu {
         MAIN,
