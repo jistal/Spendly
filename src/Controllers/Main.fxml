@@ -11,24 +11,19 @@
 <?import javafx.scene.layout.HBox?>
 
 <BorderPane prefHeight="600" prefWidth="800" stylesheets="@style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainController">
-
    <left>
 <fx:include fx:id="buttons" source="Buttons.fxml" />
    </left>
-
-
    <styleClass>
       <String fx:value="border-pane" />
       <String fx:value="vbox" />
       <String fx:value="anchor-pane" />
    </styleClass>
-
-
-
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <top>
-            <HBox fx:id="topLabelsHBOX" prefHeight="106.0" prefWidth="532.0" style="-: white;" BorderPane.alignment="CENTER">
+         <!-- Top Text Label -->
+            <HBox fx:id="topLabelContainer" prefHeight="106.0" prefWidth="532.0" style="-: white;" BorderPane.alignment="CENTER">
                <children>
                   <Label fx:id="topLabel" alignment="CENTER" maxWidth="Infinity" prefHeight="50.0" prefWidth="422.0" styleClass="top-label" stylesheets="@style.css" text="Spendings" textFill="WHITE" HBox.hgrow="ALWAYS">
                      <HBox.margin>
@@ -40,7 +35,8 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox fx:id="earningsChartHBOX" layoutX="0.8" layoutY="23.2" prefHeight="418.0" prefWidth="530.0" style="-: white;" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="23.0">
+                <!--  Earnings Chart -->
+                  <HBox fx:id="earningsChartContainer" layoutX="0.8" layoutY="23.2" prefHeight="418.0" prefWidth="530.0" style="-: white;" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="23.0">
                      <children>
                         <AreaChart fx:id="earningsChart" HBox.hgrow="ALWAYS">
                           <xAxis>
@@ -52,7 +48,8 @@
                         </AreaChart>
                      </children>
                   </HBox>
-                  <HBox fx:id="spendingsChartHBOX" layoutX="10.8" layoutY="33.2" prefHeight="418.0" prefWidth="530.0" style="-: white;" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="23.0">
+                   <!-- Spendings Chart-->
+                  <HBox fx:id="spendingsChartContainer" layoutX="10.8" layoutY="33.2" prefHeight="418.0" prefWidth="530.0" style="-: white;" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="23.0">
                      <children>
                         <AreaChart fx:id="spendingsChart" HBox.hgrow="ALWAYS">
                           <xAxis>
@@ -69,9 +66,4 @@
          </center>
       </BorderPane>
    </center>
-
-
-
-
-
 </BorderPane>

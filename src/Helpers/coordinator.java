@@ -1,19 +1,19 @@
 package Helpers;
-import DataReaders.ReadData;
+import DataReaders.readData;
 import javafx.scene.chart.AreaChart;
 
 import java.time.Month;
 import java.util.ArrayList;
 
-public class Coordinator {
+public class coordinator {
 
     // pass the selected chart from main con down to the handler
-    private CoordinatorCharts handlerChart = new CoordinatorCharts();
+    private coordinatorCharts handlerChart = new coordinatorCharts();
     public void setChart(AreaChart<String, Number> chart) {
         handlerChart.setChart(chart);
     }
 
-    ReadData readData = new ReadData();
+    readData readData = new readData();
 
     private static final String SPENDINGS_FILE = "Spendings.txt";
     private static final String EARNINGS_FILE = "Earnings.txt";

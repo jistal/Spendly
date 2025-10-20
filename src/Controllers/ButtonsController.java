@@ -1,7 +1,7 @@
 package Controllers;
-import Helpers.Coordinator;
-import Helpers.InputAmount;
-import Helpers.MenuManager;
+import Helpers.coordinator;
+import Helpers.inputAmount;
+import Helpers.menuManager;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -9,10 +9,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.control.Label;
 
 import java.util.ArrayList;
-
 public class ButtonsController {
 
     private static final String SPENDINGS_FILE = "Spendings.txt";
@@ -24,18 +22,18 @@ public class ButtonsController {
     }
 
     // link this controller to coordinator
-    private Coordinator communicator;
-    public void setCoordinator(Coordinator comm) {
+    private coordinator communicator;
+    public void setCoordinator(coordinator comm) {
         this.communicator = comm;
     }
 
-    private MenuManager menuManager; // injected by main
-    public void setMenuManager(MenuManager menu) {
+    private menuManager menuManager; // injected by main
+    public void setMenuManager(menuManager menu) {
         this.menuManager = menu;
     }
 
     // handle user input for spendings / earnings
-    InputAmount inputAmount = new InputAmount();
+    inputAmount inputAmount = new inputAmount();
 
    public enum Menu {
         MAIN,
@@ -48,22 +46,21 @@ public class ButtonsController {
 
 
     @FXML private VBox mainButtons;
-    @FXML private VBox altButtons;
+    @FXML private VBox secondaryButtons;      // this
     @FXML private TextField amountInput;
-    @FXML private VBox amountInputVBox;
+    @FXML private VBox amountInputContainer; // this
     @FXML private VBox viewButtons;
-    @FXML private VBox viewSpendOrEarnVBOX;
-    @FXML private HBox backButtonHBox;
+    @FXML private VBox viewCategoryContainer;      // this
+    @FXML private HBox backButtonContainer;          // tjois
     @FXML private ScrollPane dailyScrollPane;
-    @FXML private VBox dailyScrollVBox;
+    @FXML private VBox dailyScrollContainer;          // tjos
     @FXML private Button addBtn;
     @FXML private Button viewBtn;
-    @FXML private Button earnedBtn;
-    @FXML private Button spentBtn;
+    @FXML private Button earningsBtn;        //
+    @FXML private Button spendingsBtn;         //
     @FXML private Button dailyViewBtn;
     @FXML private Button monthlyViewBtn;
     @FXML private Button yearlyViewBtn;
-    @FXML private VBox viewSpendOrEarn;
     @FXML private Button spendingsViewBtn;
     @FXML private Button earningsViewBtn;
     @FXML private Button backButton;
@@ -71,18 +68,18 @@ public class ButtonsController {
     // public "apis" for menu manager
     public void showMainButtons(){mainButtons.setVisible(true);}
     public void hideMainButtons(){mainButtons.setVisible(false);}
-    public void showAltButtons(){altButtons.setVisible(true);}
-    public void hideAltButtons(){altButtons.setVisible(false);}
-    public void showAmountInputVBOX(){amountInputVBox.setVisible(true);}
-    public void hideAmountInputVBOX(){amountInputVBox.setVisible(false);}
+    public void showSecondaryButtons(){secondaryButtons.setVisible(true);}          //
+    public void hideSecondaryButtons(){secondaryButtons.setVisible(false);}           //
+    public void showAmountInputContainer(){amountInputContainer.setVisible(true);}      //
+    public void hideAmountInputVBOX(){amountInputContainer.setVisible(false);}
     public void showViewButtons(){viewButtons.setVisible(true);}
     public void hideViewButtons(){viewButtons.setVisible(false);}
-    public void showViewSpendOrEarnVBOX(){viewSpendOrEarnVBOX.setVisible(true);}
-    public void hideViewSpendOrEarnVBOX(){viewSpendOrEarnVBOX.setVisible(false);}
-    public void showBackButtonHBOX(){backButtonHBox.setVisible(true);}
-    public void hideBackButtonHBOX(){backButtonHBox.setVisible(false);}
-    public void showDailyScrollVBOX(){dailyScrollVBox.setVisible(true);}
-    public void hideDailyScrollVBOX(){dailyScrollVBox.setVisible(false);}
+    public void showViewSpendOrEarnContainer(){viewCategoryContainer.setVisible(true);}          //
+    public void hideViewSpendOrEarnContainer(){viewCategoryContainer.setVisible(false);}           //
+    public void showBackButtonContainer(){backButtonContainer.setVisible(true);}           //
+    public void hideBackButtonContainer(){backButtonContainer.setVisible(false);}          //
+    public void showDailyScrollContainer(){dailyScrollContainer.setVisible(true);}       //
+    public void hideDailyScrollContainer(){dailyScrollContainer.setVisible(false);}            //
 
     // "api" used by input amount helper
     public TextField getAmountInputField(){return amountInput;}
@@ -129,7 +126,7 @@ public class ButtonsController {
 
     // add spendings
     private void setupAddSpendingsButton() {
-        spentBtn.setOnAction(e -> {
+        spendingsBtn.setOnAction(e -> {
             amountInput.setOnAction(i -> inputAmount.getInput(SPENDINGS_FILE));
             currentMenu = Menu.inputAmount;
             menuManager.buttonVisibility(currentMenu);
@@ -138,7 +135,7 @@ public class ButtonsController {
 
     // add earnings
     private void setupAddEarningsButton() {
-        earnedBtn.setOnAction(e -> {
+        earningsBtn.setOnAction(e -> {
             amountInput.setOnAction(i -> inputAmount.getInput(EARNINGS_FILE));
             currentMenu = Menu.inputAmount;
             menuManager.buttonVisibility(Menu.inputAmount);

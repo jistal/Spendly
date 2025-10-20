@@ -2,7 +2,7 @@ package Helpers;
 import Controllers.ButtonsController;
 import Controllers.MainController;
 
-public class MenuManager {
+public class menuManager {
 
     //ref to main and buttons con for ui updates
     private ButtonsController buttonsController;
@@ -18,62 +18,45 @@ public class MenuManager {
     }
 
     public void buttonVisibility(ButtonsController.Menu currentMenu) {
-        buttonsController.hideAltButtons();
+        buttonsController.hideSecondaryButtons();
         buttonsController.hideMainButtons();
         buttonsController.hideAmountInputVBOX();
         buttonsController.hideViewButtons();
-        buttonsController.hideDailyScrollVBOX();
-        buttonsController.hideViewSpendOrEarnVBOX();
-        buttonsController.hideBackButtonHBOX();
+        buttonsController.hideDailyScrollContainer();
+        buttonsController.hideViewSpendOrEarnContainer();
+        buttonsController.hideBackButtonContainer();
         switch (currentMenu) {
-            case MAIN ->{
-                buttonsController.showMainButtons();
-
-                //mainController.hideTopLabelsHBOX();
-                //mainController.hideEarningsChart();
-                //mainController.hideSpendingsChart();
-            }
+            case MAIN -> buttonsController.showMainButtons();
             case addSpendingsOrEarnings -> {
-                buttonsController.showAltButtons();
-                buttonsController.showBackButtonHBOX();
-
+                buttonsController.showSecondaryButtons();
+                buttonsController.showBackButtonContainer();
             }
             case inputAmount -> {
-                buttonsController.showAmountInputVBOX();
-                buttonsController.showBackButtonHBOX();
-
-                //mainController.hideTopLabelsHBOX();
-                //mainController.hideEarningsChart();
-                //mainController.hideSpendingsChart();
+                buttonsController.showAmountInputContainer();
+                buttonsController.showBackButtonContainer();
             }
             case viewSpendingsOrEarnings -> {
-                buttonsController.showViewSpendOrEarnVBOX();
-                buttonsController.showBackButtonHBOX();
-
-                //mainController.hideTopLabelsHBOX();
-                //mainController.hideEarningsChart();
-                //mainController.hideSpendingsChart();
-
+                buttonsController.showViewSpendOrEarnContainer();
+                buttonsController.showBackButtonContainer();
             }
             case viewPeriods -> {
                buttonsController.showViewButtons();
-                buttonsController.showBackButtonHBOX();
+                buttonsController.showBackButtonContainer();
 
             }
             case scrollingMenu -> {
-                buttonsController.showDailyScrollVBOX();
-                buttonsController.showBackButtonHBOX();
+                buttonsController.showDailyScrollContainer();
+                buttonsController.showBackButtonContainer();
             }
         }
     }
-
 
     public void chartVisibility(MainController.chartMenu currentMenu) {
 
         switch (currentMenu) {
             case EARNINGSCHART ->{
                 mainController.showEarningsChart();
-                mainController.showTopLabelsHBOX();
+                mainController.showTopLabelsContainer();
 
                 mainController.chart = mainController.getEarningsChart();
                 mainController.accessTopLabel().setStyle("-fx-text-fill: #A6FFB0; ");  // light green text
@@ -83,7 +66,7 @@ public class MenuManager {
 
             case SPENDINGSCHART ->{
                 mainController.showSpendingsChart();
-                mainController.showTopLabelsHBOX();
+                mainController.showTopLabelsContainer();
 
                 mainController.chart = mainController.getSpendingsChart();
                 mainController.accessTopLabel().setStyle("-fx-text-fill: #FF7F7F"); // coral red text

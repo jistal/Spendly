@@ -1,25 +1,24 @@
 package Helpers;
-import DataReaders.ReadTransactions;
+import DataReaders.readTransactions;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.XYChart;
 import java.time.Month;
 import java.util.ArrayList;
 
-public class CoordinatorCharts {
-
-    AreaChart<String, Number> chart;
+public class coordinatorCharts {
 
     private enum Period{
         DAILY, MONTHLY, YEARLY
     } Period period;
 
     // called by coordinator to set chart ref
-    public void setChart(AreaChart<String, Number> chart) {
-        this.chart = chart;
+    AreaChart<String, Number> chart;
+    public void setChart(AreaChart<String, Number> chartReturned) {
+        this.chart = chartReturned;
     }
 
     // ref to data reader
-    ReadTransactions readTransactions = new ReadTransactions();
+    readTransactions readTransactions = new readTransactions();
 
 // period setters used by coordinator
     public void setPeriodDaily(){period = Period.DAILY;}
@@ -27,21 +26,21 @@ public class CoordinatorCharts {
     public void setPeriodYearly(){period = Period.YEARLY;}
 
 
-    public void getDataForChart(String fileName, String month, String year) {
+    public void getDataForChart(String fileName, String selectedMonth, String selectedYear) {
 
-        ArrayList<int[]> data = new ArrayList<>();
+        ArrayList<dataPoint> data = new ArrayList<>();
         XYChart.Series<String, Number> series = new XYChart.Series<>();
 
         switch (period) {
             case DAILY -> {
                 readTransactions.setPeriodDaily();
-                data = readTransactions.data(fileName, month, year);
-                series.setName("Currently viewing: " + numToMonth(month) + " - " + year);
+                data = readTransactions.data(fileName, selectedMonth, selectedYear);
+                series.setName("Currently viewing: " + numToMonth(selectedMonth) + " - " + selectedYear);
             }
             case MONTHLY -> {
                 readTransactions.setPeriodMonthly();
-                data = readTransactions.data(fileName, null, year);
-                series.setName("Currently viewing: " + year);
+                data = readTransactions.data(fileName, null, selectedYear);
+                series.setName("Currently viewing: " + selectedYear);
             }
             case YEARLY -> {
                 readTransactions.setPeriodYearly();
@@ -53,27 +52,26 @@ public class CoordinatorCharts {
     }
 
 
-    private void displayTheData(ArrayList<int[]> data, XYChart.Series<String, Number> series){
+    private void displayTheData(ArrayList<dataPoint> data, XYChart.Series<String, Number> series){
         chart.getData().clear();
-        for (int[] row : data) {
+
+        for (int i = 0; i < data.size(); i++){
+            dataPoint dp= data.get(i);
             String xAxis;
 
             // show months instead of numbers for monthly view
             if (period == Period.MONTHLY) {
-                xAxis = numToMonth(String.valueOf(row[0]));
+                xAxis = String.valueOf(dp.timeUnitValue());
             } else {
-                xAxis = String.valueOf(row[0]);
+                xAxis = String.valueOf(dp.timeUnitValue());
             }
-
-            int amount = row[1];
+            int amount = dp.amount();
             series.getData().add(new XYChart.Data<>(xAxis, amount));
         }
 
         chart.getData().add(series);
         chart.setLegendVisible(true);
-
     }
-
 
     private String numToMonth(String num){
         String monthName = Month.of(Integer.parseInt(num)).name();

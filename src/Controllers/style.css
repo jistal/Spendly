@@ -1,38 +1,26 @@
-
-
 .anchor-pane{
     -fx-background-color: #B5EAD7;
-    -fx-background-radius: 15;   /* rounded corners */
-    -fx-border-radius: 15;       /* border follows rounded corners */
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
     -fx-padding: 10;
 }
 
 .side-anchor-pane {
-    -fx-background-color: rgba(195, 241, 226, 0.35); /* frosted mint glass */
-    -fx-background-radius: 15;   /* rounded corners */
-    -fx-border-radius: 15;       /* smooth border curve */
-    -fx-border-color: rgba(255, 255, 255, 0.45); /* subtle white glow edge */
+    -fx-background-color: rgba(195, 241, 226, 0.35);
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: rgba(255, 255, 255, 0.45);
     -fx-border-width: 1.5;
     -fx-padding: 10;
     -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.3), 8, 0.5, 0, 0),
-                dropshadow(gaussian, rgba(0,0,0,0.25), 8, 0.3, 0, 2); /* glow + depth */
+                dropshadow(gaussian, rgba(0,0,0,0.25), 8, 0.3, 0, 2);
 }
-
 
 .hbox{
   -fx-background-color: #E9ECEF;
-    -fx-border-radius: 20;
-        -fx-background-radius: 20;
-
-
+  -fx-border-radius: 20;
+  -fx-background-radius: 20;
 }
-
-
-#backButtonHBox {
--fx-background-color: transparent;
-}
-
-
 
 .secondBorderPane{
 -fx-background-color: #2C2C54;
@@ -40,130 +28,104 @@
      -fx-background-radius: 20;
 }
 
-
 .border-pane {
 -fx-background-color: #2D3436;
     -fx-border-radius: 20;
      -fx-background-radius: 20;
 }
 .button {
-    -fx-background-color: rgba(255, 255, 255, 0.35); /* frosted white overlay */
+    -fx-background-color: rgba(255, 255, 255, 0.35);
     -fx-pref-width: 300;
     -fx-min-height: 50;
-    -fx-text-fill: #2D3436; /* readable dark text on light glass */
+    -fx-text-fill: #2D3436;
     -fx-text-font: bold;
     -fx-font-size: 12px;
     -fx-font-weight: bold;
     -fx-padding: 12px 24px;
     -fx-background-radius: 10;
-    -fx-border-color: rgba(255, 255, 255, 0.75); /* glowing edge */
+    -fx-border-color: rgba(255, 255, 255, 0.75);
     -fx-border-radius: 10;
     -fx-border-width: 1.5;
     -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.3), 10, 0.4, 0, 0); /* soft white glow */
-
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.3), 10, 0.4, 0, 0);
 }
 
+#backButtonHBox {
+-fx-background-color: transparent;
+}
 
 .custom-back-button {
-    -fx-background-color: rgba(169, 169, 169, 0.45); /* semi-transparent gray glass */
+    -fx-background-color: rgba(169, 169, 169, 0.45);
     -fx-text-fill: #ffffff;
     -fx-font-size: 12px;
     -fx-font-weight: bold;
     -fx-padding: 12px 24px;
     -fx-background-radius: 10;
-    -fx-border-color: rgba(255, 255, 255, 0.5); /* subtle white glow edge */
+    -fx-border-color: rgba(255, 255, 255, 0.5);
     -fx-border-radius: 10;
     -fx-border-width: 1.2;
     -fx-cursor: hand;
     -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.25), 8, 0.4, 0, 0),
-                dropshadow(gaussian, rgba(0,0,0,0.25), 6, 0.3, 0, 2); /* glass glow + depth */
+                dropshadow(gaussian, rgba(0,0,0,0.25), 6, 0.3, 0, 2);
 }
 
 .label {
-
-    -fx-background-color: rgba(255, 255, 255, 0.08); /* subtle white tint */
+    -fx-background-color: rgba(255, 255, 255, 0.08);
     -fx-text-fill: #ffffff;
     -fx-font-size: 18px;
     -fx-font-weight: bold;
-      -fx-border-color: #6C63FF;
-      -fx-background-insets: 0;
+    -fx-border-color: #6C63FF;
+    -fx-background-insets: 0;
     -fx-padding: 12px 24px;
     -fx-background-radius: 10px;
     -fx-border-width: 0;
     -fx-cursor: hand;
     -fx-border-color: transparent;
-
-       /* ✨ added glow outline */
-        -fx-border-color: rgba(255, 255, 255, 0.4); /* soft white border glow */
-        -fx-border-width: 1.2;
-        -fx-border-radius: 10;
-        -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.25), 8, 0.3, 0, 0);
+     -fx-border-color: rgba(255, 255, 255, 0.4);
+     -fx-border-width: 1.2;
+     -fx-border-radius: 10;
+     -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.25), 8, 0.3, 0, 0);
 }
 
 .top-label {
-    -fx-background-color: rgba(255, 255, 255, 0.08); /* subtle white tint */
+    -fx-background-color: rgba(255, 255, 255, 0.08);
     -fx-background-radius: 10;
-    -fx-text-fill: #E0E0E0; /* soft light gray text */
+    -fx-text-fill: #E0E0E0;
     -fx-padding: 6 12;
-
-    /* ✨ added glow outline */
-    -fx-border-color: rgba(255, 255, 255, 0.4); /* soft white border glow */
+    -fx-border-color: rgba(255, 255, 255, 0.4);
     -fx-border-width: 1.2;
     -fx-border-radius: 10;
     -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.25), 8, 0.3, 0, 0);
 }
 
-
-.chart-point-label {
--fx-background-color: transparent, transparent;
-    -fx-text-fill: gray;
-    -fx-font-size: 10;
-    -fx-background-color: transparent; /* no weird big box */
-}
-
-
 .chart-plot-background {
-    -fx-background-color: #2d3436; /* any color you want */
-}
-
-.chart-symbol {
-    -fx-background-color: transparent, transparent;
-    -fx-shape: null; /* removes the circle shape */
+    -fx-background-color: #2d3436;
 }
 
 .axis {
-
--fx-tick-label-fill: #6C63FF;
--fx-tick-label-font-size: 25px;
--fx-tick-mark: transparent;
- -fx-stroke: transparent;
-
+   -fx-tick-label-fill: #6C63FF;
+   -fx-tick-label-font-size: 25px;
+   -fx-tick-mark: transparent;
+   -fx-stroke: transparent;
 }
 
-/*.chart-horizontal-grid-lines,*/
 .chart-vertical-grid-lines {
-    -fx-stroke: transparent; /* hides them */
+    -fx-stroke: transparent;
 }
 
 
 .default-color0.chart-series-area-line {
-    -fx-stroke: #A5FAB2;
+    -fx-stroke: #FFFFFF;
     -fx-stroke-width: 2px;
 }
-
-
 
 .default-color0.chart-series-area-fill {
     -fx-fill: rgba(182, 240, 234, 0.3);
 }
 
-
-
 .scroll-pane .viewport {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
-
 }
 
 .scroll-pane {
@@ -174,6 +136,6 @@
 .chart-legend{
 -fx-background-color: transparent;
     -fx-background-radius: 10;
-    -fx-text-fill: #E0E0E0; /* soft light gray text */
+    -fx-text-fill: #E0E0E0;
     -fx-padding: 6 12;
 }

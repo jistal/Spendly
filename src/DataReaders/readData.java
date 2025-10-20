@@ -1,12 +1,12 @@
 package DataReaders;
-import Helpers.NotificationHandler;
+import Helpers.notificationHandler;
 import java.io.*;
 import java.util.*;
 
-public class ReadData {
+public class readData {
 
     // read the months found in the file and year selected by user
-   public ArrayList<String> storedMonths(String fileName, String selectedYearByUser) {
+   public ArrayList<String> storedMonths(String fileName, String selectedYear) {
         String line;
         ArrayList<String> monthsList = new ArrayList<>();
 
@@ -19,11 +19,13 @@ public class ReadData {
 
             while ((line = reader.readLine()) != null) {
                 String[] readData = line.split("-");
-                String yearRead = readData[0].trim();          // FORMAT  [year-month-date-amount]
+                if (readData.length < 4) continue;           // skips bad lines
+
+                String yearRead = readData[0].trim();          // year-month-date-amount
                 String monthRead = readData[1].trim();
 
-                if (selectedYearByUser.equals(yearRead)) {         // only find months from requested years
-                    monthsSet.add(monthRead); // to remove dupes
+                if (selectedYear.equals(yearRead)) {         // only find months from requested years
+                    monthsSet.add(monthRead); // remove dupes
                 }
             }
 
@@ -32,7 +34,7 @@ public class ReadData {
                 monthsList.add(month);
             }
         } catch (IOException e) {
-            NotificationHandler.getInstance().callNotificationHandler("Could not load data, try again.");
+            notificationHandler.getInstance().callNotificationHandler("Could not load data, try again.");
         }
        return monthsList;
     }
@@ -50,6 +52,7 @@ public class ReadData {
 
             while ((line = reader.readLine()) != null) {
                 String[] readData = line.split("-");
+                if (readData.length < 4) continue;           // skips bad lines
                 String yearRead = readData[0];
                 yearSet.add(yearRead);
             }
@@ -59,7 +62,7 @@ public class ReadData {
                 yearsList.add(years);
             }
         } catch (IOException e) {
-            NotificationHandler.getInstance().callNotificationHandler("Could not load data, try again.");
+            notificationHandler.getInstance().callNotificationHandler("Could not load data, try again.");
         }
         return yearsList;
     }
