@@ -2,7 +2,7 @@
 
 **Description:**
 A lightweight **JavaFX application** for tracking personal finances.  
-Visualizes earnings and spendings with clean charts.
+Visualizes earnings and spendings with charts.
 
 ## Tech Stack:
 - Java (JDK 24)
