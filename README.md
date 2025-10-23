@@ -1,6 +1,6 @@
 # Spendly - Finance Tracker
 
-**Description: **
+**Description:**
 A lightweight **JavaFX application** for tracking personal finances.  
 Visualizes earnings and spendings with clean charts.
 
